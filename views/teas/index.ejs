@@ -1,0 +1,12 @@
+<% layout("./layouts/boilerplate") %>
+   <h1>All Teas</h1>
+    
+    <div>
+        <a href="/teas/new">Create a new tea</a>
+    </div>
+
+    <ul>
+        <% for (let tea of teas) {%>
+        <li><a href="teas/<%= tea.id %>"><%= tea.name %></a></li>        
+        <% } %>
+    </ul>

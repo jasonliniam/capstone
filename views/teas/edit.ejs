@@ -1,0 +1,45 @@
+<% layout("./layouts/boilerplate") %>
+
+<h1 class="text-center">Edit <%= tea.name %></h1>
+<div class="col-6 offset-3">
+
+	<form class="needs-validation" action="/teas/<%=tea.id%>/?_method=PUT" method="POST" novalidate>
+	<div class="mb-3">
+        <label class="form-label" for="image">Tea Image</label>
+        <input class="form-control" type="text" id="image" name="tea[image]" required>
+    </div>
+	
+	<div class="mb-3">
+		<label class="form-label" for="name">Tea Name</label>
+		<!-- // we are using the square brackets in the name so that we can easily send data to our mongoose method without reformatting the body. -->
+		<input class="form-control" type="text" id="name" name="tea[name]" value="<%= tea.name %>" required>
+	</div>
+	<div class="mb-3">
+		<label class="form-label" for="description">Tea Description</label>
+        <input class="form-control" type="text" id="description" name="tea[description]" value="<%= tea.description %>" required>
+	</div>
+	<div class="mb-3">
+		<label  class="form-label" for="caffeine">Caffeine</label>
+		<select class="form-control" name="tea[caffeine]" id="caffeine">
+			<option value="None">None</option>
+			<option value="Low">Low</option>
+			<option value="Medium">Medium</option>
+			<option value="High">High</option>
+		</select>
+	</div>
+	<div class="mb-3">
+		<label class="form-label" for="price">Tea Price</label>
+		<select class="form-control" name="tea[price]" id="price">
+			<option value="$">$</option>
+			<option value="$$">$$</option>
+			<option value="$$$">$$$</option>
+		</select>
+	</div>
+	<div class="mb-3">
+	<button class="btn btn-success">Submit</button>
+	</div>	
+	</form>
+	
+<a href="/teas/<%= tea.id%>">Go back to <%= tea.name %>
+
+</div>
